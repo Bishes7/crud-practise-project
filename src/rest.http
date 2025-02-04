@@ -1,0 +1,18 @@
+### Get Method
+GET http://localhost:8000/api/v1/users
+
+### Post Method
+POST http://localhost:8000/api/v1/users
+Content-Type: application/json
+
+{
+ "id":4,
+ "fName": "Sanjog",
+ "lName": "Dhakal" 
+}
+
+### Delete Method
+DELETE http://localhost:8000/api/v1/users/2
+Content-Type: application/json
+
+
