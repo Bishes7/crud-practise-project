@@ -41,7 +41,7 @@ router.post("/", (req, res) => {
 
   //   Check if the id matches
 
-  if (DB.some((user) => user.id === id)) {
+  if (DB.some((user) => user.id === +id)) {
     return res.status(401).json({
       message: "id already exists",
     });
@@ -57,11 +57,21 @@ router.post("/", (req, res) => {
 
 //PUT Method
 router.put("/", (req, res) => {
-  console.log(req.body);
-  DB.push(req.body);
-  res.json({
-    message: "Put method implemented",
-  });
+  const { id, fName, lName } = req.body;
+
+  const newUser = { id: +id, fName, lName };
+
+  // first check the existing user
+  const userIndex = DB.findIndex((user) => user.id === +id);
+
+  if (userIndex !== -1) {
+    DB[userIndex] = newUser;
+
+    return res.json({
+      message: "User has been updated successfully",
+      user: newUser,
+    });
+  }
 });
 
 //  Delete Method

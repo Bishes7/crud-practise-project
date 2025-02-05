@@ -11,6 +11,16 @@ Content-Type: application/json
  "lName": "Dhakal" 
 }
 
+###  Put method
+PUT http://localhost:8000/api/v1/users
+Content-Type: application/json
+
+{
+    "id": 2,
+    "fName": "Kush",
+    "lName": "Bhandari"
+}
+
 ### Delete Method
 DELETE http://localhost:8000/api/v1/users/2
 Content-Type: application/json
